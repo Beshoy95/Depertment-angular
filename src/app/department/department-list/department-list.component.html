@@ -1,0 +1,22 @@
+<button (click)="load()">load</button>
+ 
+<table>
+    <thead *ngIf="depts.length>0">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Location</th>
+       </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of depts">
+            <td>{{item._id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.location}}</td>
+            <td><button (click)="deptDetailsId=item._id">details</button></td>
+            <td><button (click)="deptEditId=item._id">edit</button></td>
+        </tr>
+    </tbody>  
+</table>
+<app-department-detail [deptId]="deptDetailsId"></app-department-detail>
+<app-department-edit [deptId]="deptEditId" ></app-department-edit>
